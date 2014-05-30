@@ -9,6 +9,7 @@ How to install
 LINUX
 
 1.- Proceed with Clang's build install as stated here:
+	http://clang.llvm.org/get_started.html
 2.- Go to your llvm directory >>>>> cd (your llvm directory)/tools/clang/tools
 3.- Clone the repository at a custom folder >>>>> git clone https://github.com/Si1314/xml-tree-tool.git astXMLtool
 4.- Copy the Makefile
