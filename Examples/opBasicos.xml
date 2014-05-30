@@ -1,0 +1,229 @@
+<function name="dameValor" type="_Bool" line="3">
+    <params>
+        <param type="_Bool" name="a"/>
+    </params>
+    <body>
+        <return line="4">
+            <variable name="a"/>
+        </return>
+    </body>
+</function>
+
+<function name="dameValor" type="int" line="7">
+    <params>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <return line="8">
+            <variable name="b"/>
+        </return>
+    </body>
+</function>
+
+<function name="suma" type="int" line="11">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <return line="12">
+            <binaryOperator type="arithmetic" operator="+">
+                <variable name="a"/>
+                <variable name="b"/>
+            </binaryOperator>
+        </return>
+    </body>
+</function>
+
+<function name="resta" type="int" line="15">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <return line="16">
+            <binaryOperator type="arithmetic" operator="-">
+                <variable name="a"/>
+                <variable name="b"/>
+            </binaryOperator>
+        </return>
+    </body>
+</function>
+
+<function name="multiplicacion" type="int" line="19">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <return line="20">
+            <binaryOperator type="arithmetic" operator="*">
+                <variable name="a"/>
+                <variable name="b"/>
+            </binaryOperator>
+        </return>
+    </body>
+</function>
+
+<function name="division" type="int" line="23">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <return line="24">
+            <binaryOperator type="arithmetic" operator="/">
+                <variable name="a"/>
+                <variable name="b"/>
+            </binaryOperator>
+        </return>
+    </body>
+</function>
+
+<function name="ylogica" type="_Bool" line="27">
+    <params>
+        <param type="_Bool" name="a"/>
+        <param type="_Bool" name="b"/>
+    </params>
+    <body>
+        <return line="28">
+            <binaryOperator type="boolean" operator="&amp;&amp;">
+                <variable name="a"/>
+                <variable name="b"/>
+            </binaryOperator>
+        </return>
+    </body>
+</function>
+
+<function name="ologica" type="_Bool" line="31">
+    <params>
+        <param type="_Bool" name="a"/>
+        <param type="_Bool" name="b"/>
+    </params>
+    <body>
+        <return line="32">
+            <binaryOperator type="boolean" operator="||">
+                <variable name="a"/>
+                <variable name="b"/>
+            </binaryOperator>
+        </return>
+    </body>
+</function>
+
+<function name="mayor" type="_Bool" line="35">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <return line="36">
+            <binaryOperator type="comparison" operator="&gt;">
+                <variable name="a"/>
+                <variable name="b"/>
+            </binaryOperator>
+        </return>
+    </body>
+</function>
+
+<function name="mayorIgual" type="_Bool" line="39">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <return line="40">
+            <binaryOperator type="comparison" operator="&gt;=">
+                <variable name="a"/>
+                <variable name="b"/>
+            </binaryOperator>
+        </return>
+    </body>
+</function>
+
+<function name="menor" type="_Bool" line="43">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <return line="44">
+            <binaryOperator type="comparison" operator="&lt;">
+                <variable name="a"/>
+                <variable name="b"/>
+            </binaryOperator>
+        </return>
+    </body>
+</function>
+
+<function name="menorIgual" type="_Bool" line="47">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <return line="48">
+            <binaryOperator type="comparison" operator="&lt;=">
+                <variable name="a"/>
+                <variable name="b"/>
+            </binaryOperator>
+        </return>
+    </body>
+</function>
+
+<function name="igual" type="_Bool" line="51">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <return line="52">
+            <binaryOperator type="comparison" operator="==">
+                <variable name="a"/>
+                <variable name="b"/>
+            </binaryOperator>
+        </return>
+    </body>
+</function>
+
+<function name="distinto" type="_Bool" line="55">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <return line="56">
+            <binaryOperator type="comparison" operator="!=">
+                <variable name="a"/>
+                <variable name="b"/>
+            </binaryOperator>
+        </return>
+    </body>
+</function>
+
+<function name="hazWhile" type="int" line="59">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <declarations>
+            <declaration type="int" name="b" line="60">
+                <binaryOperator type="arithmetic" operator="+">
+                    <variable name="a"/>
+                    <const value="1"/>
+                </binaryOperator>
+            </declaration>
+        </declarations>
+        <while line="61">
+            <binaryOperator type="comparison" operator="&lt;">
+                <variable name="b"/>
+                <const value="0"/>
+            </binaryOperator>
+            <body>
+                <unaryOperator name="b" operator="+" line="62"/>
+            </body>
+        </while>
+        <return line="64">
+            <variable name="b"/>
+        </return>
+    </body>
+</function>

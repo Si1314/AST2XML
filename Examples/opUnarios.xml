@@ -1,0 +1,72 @@
+<function name="notA" type="_Bool" line="4">
+    <params>
+        <param type="_Bool" name="a"/>
+    </params>
+    <body>
+        <return line="5">
+            <notOperator>
+                <variable name="a"/>
+            </notOperator>
+        </return>
+    </body>
+</function>
+
+<function name="invA" type="int" line="9">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <return line="10">
+            <signOperator type="-">
+                <variable name="a"/>
+            </signOperator>
+        </return>
+    </body>
+</function>
+
+<function name="retA" type="int" line="14">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <return line="15">
+            <signOperator type="+">
+                <variable name="a"/>
+            </signOperator>
+        </return>
+    </body>
+</function>
+
+<function name="incrA" type="int" line="19">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <declarations>
+            <declaration type="int" name="b" line="20">
+                <variable name="a"/>
+            </declaration>
+        </declarations>
+        <unaryOperator name="b" operator="+" line="21"/>
+        <return line="22">
+            <variable name="b"/>
+        </return>
+    </body>
+</function>
+
+<function name="decrA" type="int" line="26">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <declarations>
+            <declaration type="int" name="b" line="27">
+                <variable name="a"/>
+            </declaration>
+        </declarations>
+        <unaryOperator name="b" operator="-" line="28"/>
+        <return line="29">
+            <variable name="b"/>
+        </return>
+    </body>
+</function>

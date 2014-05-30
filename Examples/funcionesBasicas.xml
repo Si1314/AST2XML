@@ -1,0 +1,610 @@
+<function name="potencia" type="int" line="3">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <if line="4">
+            <binaryOperator type="comparison" operator="&gt;=">
+                <variable name="b"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <declarations>
+                        <declaration type="int" name="c" line="5">
+                            <variable name="b"/>
+                        </declaration>
+                    </declarations>
+                    <declarations>
+                        <declaration type="int" name="r" line="6">
+                            <const value="1"/>
+                        </declaration>
+                    </declarations>
+                    <while line="7">
+                        <binaryOperator type="comparison" operator="&gt;">
+                            <variable name="c"/>
+                            <const value="0"/>
+                        </binaryOperator>
+                        <body>
+                            <assignmentOperator name="r" type="arithmetic" operator="*" line="8">
+                                <variable name="a"/>
+                            </assignmentOperator>
+                            <unaryOperator name="c" operator="-" line="9"/>
+                        </body>
+                    </while>
+                    <return line="11">
+                        <variable name="r"/>
+                    </return>
+                </body>
+            </then>
+            <else>
+                <body>
+                    <return line="13">
+                        <signOperator type="-">
+                            <const value="1"/>
+                        </signOperator>
+                    </return>
+                </body>
+            </else>
+        </if>
+    </body>
+</function>
+
+<function name="multDiez" type="int" line="17">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <declarations>
+            <declaration type="int" name="b" line="18"/>
+        </declarations>
+        <if line="19">
+            <binaryOperator type="comparison" operator="&lt;">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <assignment name="b" line="20">
+                        <signOperator type="-">
+                            <variable name="a"/>
+                        </signOperator>
+                    </assignment>
+                </body>
+            </then>
+            <else>
+                <body>
+                    <assignment name="b" line="22">
+                        <variable name="a"/>
+                    </assignment>
+                </body>
+            </else>
+        </if>
+        <declarations>
+            <declaration type="int" name="c" line="24">
+                <const value="10"/>
+            </declaration>
+        </declarations>
+        <declarations>
+            <declaration type="int" name="r" line="25">
+                <const value="0"/>
+            </declaration>
+        </declarations>
+        <while line="26">
+            <binaryOperator type="comparison" operator="&gt;">
+                <variable name="c"/>
+                <const value="0"/>
+            </binaryOperator>
+            <body>
+                <assignmentOperator name="r" type="arithmetic" operator="+" line="27">
+                    <variable name="a"/>
+                </assignmentOperator>
+                <unaryOperator name="c" operator="-" line="28"/>
+            </body>
+        </while>
+        <return line="30">
+            <variable name="r"/>
+        </return>
+    </body>
+</function>
+
+<function name="dimeSiPos" type="int" line="33">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <declarations>
+            <declaration type="int" name="r" line="34"/>
+        </declarations>
+        <if line="35">
+            <binaryOperator type="comparison" operator="&gt;=">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <assignment name="r" line="36">
+                        <const value="1"/>
+                    </assignment>
+                </body>
+            </then>
+            <else>
+                <body>
+                    <assignment name="r" line="38">
+                        <const value="0"/>
+                    </assignment>
+                </body>
+            </else>
+        </if>
+        <return line="40">
+            <variable name="r"/>
+        </return>
+    </body>
+</function>
+
+<function name="factorial" type="int" line="44">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <if line="45">
+            <binaryOperator type="comparison" operator="&gt;=">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <declarations>
+                        <declaration type="int" name="fact" line="46">
+                            <const value="1"/>
+                        </declaration>
+                    </declarations>
+                    <for line="47">
+                        <declarations>
+                            <declaration type="int" name="i" line="47">
+                                <const value="2"/>
+                            </declaration>
+                        </declarations>
+                        <binaryOperator type="comparison" operator="&lt;=">
+                            <variable name="i"/>
+                            <variable name="a"/>
+                        </binaryOperator>
+                        <unaryOperator name="i" operator="+" line="47"/>
+                        <body>
+                            <assignmentOperator name="fact" type="arithmetic" operator="*" line="48">
+                                <variable name="i"/>
+                            </assignmentOperator>
+                        </body>
+                    </for>
+                    <return line="50">
+                        <variable name="fact"/>
+                    </return>
+                </body>
+            </then>
+            <else>
+                <body>
+                    <return line="52">
+                        <signOperator type="-">
+                            <const value="1"/>
+                        </signOperator>
+                    </return>
+                </body>
+            </else>
+        </if>
+    </body>
+</function>
+
+<function name="fibonacci" type="int" line="56">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <if line="57">
+            <binaryOperator type="comparison" operator="&lt;">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <return line="57">
+                        <signOperator type="-">
+                            <const value="1"/>
+                        </signOperator>
+                    </return>
+                </body>
+            </then>
+        </if>
+        <if line="58">
+            <binaryOperator type="boolean" operator="||">
+                <binaryOperator type="comparison" operator="==">
+                    <variable name="a"/>
+                    <const value="0"/>
+                </binaryOperator>
+                <binaryOperator type="comparison" operator="==">
+                    <variable name="a"/>
+                    <const value="1"/>
+                </binaryOperator>
+            </binaryOperator>
+            <then>
+                <body>
+                    <return line="58">
+                        <const value="1"/>
+                    </return>
+                </body>
+            </then>
+        </if>
+        <declarations>
+            <declaration type="int" name="fibo1" line="59">
+                <const value="1"/>
+            </declaration>
+        </declarations>
+        <declarations>
+            <declaration type="int" name="fibo2" line="60">
+                <const value="1"/>
+            </declaration>
+        </declarations>
+        <declarations>
+            <declaration type="int" name="auxf" line="61"/>
+        </declarations>
+        <for line="62">
+            <declarations>
+                <declaration type="int" name="i" line="62">
+                    <const value="2"/>
+                </declaration>
+            </declarations>
+            <binaryOperator type="comparison" operator="&lt;">
+                <variable name="i"/>
+                <variable name="a"/>
+            </binaryOperator>
+            <unaryOperator name="i" operator="+" line="62"/>
+            <body>
+                <assignment name="auxf" line="63">
+                    <binaryOperator type="arithmetic" operator="+">
+                        <variable name="fibo1"/>
+                        <variable name="fibo2"/>
+                    </binaryOperator>
+                </assignment>
+                <assignment name="fibo1" line="64">
+                    <variable name="fibo2"/>
+                </assignment>
+                <assignment name="fibo2" line="65">
+                    <variable name="auxf"/>
+                </assignment>
+            </body>
+        </for>
+        <return line="67">
+            <binaryOperator type="arithmetic" operator="+">
+                <variable name="fibo1"/>
+                <variable name="fibo2"/>
+            </binaryOperator>
+        </return>
+    </body>
+</function>
+
+<function name="introduceEntero" type="int" line="70">
+    <params/>
+    <body>
+        <return line="71">
+            <consoleIn type="int"/>
+        </return>
+    </body>
+</function>
+
+<function name="reproduceEntero" type="int" line="74">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <consoleOut line="75">
+            <variable name="a"/>
+        </consoleOut>
+        <return line="76">
+            <const value="0"/>
+        </return>
+    </body>
+</function>
+
+<function name="llamadaFactorial" type="int" line="79">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <return line="80">
+            <callFunction name="factorial" type="int">
+                <arg>
+                    <variable name="a"/>
+                </arg>
+            </callFunction>
+        </return>
+    </body>
+</function>
+
+<function name="ifLlamada" type="int" line="83">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <declarations>
+            <declaration type="int" name="r" line="84"/>
+        </declarations>
+        <if line="85">
+            <binaryOperator type="comparison" operator="&lt;=">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <assignment name="r" line="86">
+                        <callFunction name="factorial" type="int">
+                            <arg>
+                                <variable name="b"/>
+                            </arg>
+                        </callFunction>
+                    </assignment>
+                </body>
+            </then>
+            <else>
+                <body>
+                    <assignment name="r" line="88">
+                        <callFunction name="potencia" type="int">
+                            <arg>
+                                <variable name="b"/>
+                            </arg>
+                            <arg>
+                                <variable name="a"/>
+                            </arg>
+                        </callFunction>
+                    </assignment>
+                </body>
+            </else>
+        </if>
+        <return line="90">
+            <variable name="r"/>
+        </return>
+    </body>
+</function>
+
+<function name="pruebaIf01" type="int" line="93">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <if line="94">
+            <binaryOperator type="comparison" operator="==">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <return line="94">
+                        <const value="1"/>
+                    </return>
+                </body>
+            </then>
+        </if>
+        <if line="95">
+            <binaryOperator type="comparison" operator="&gt;">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <return line="95">
+                        <const value="3"/>
+                    </return>
+                </body>
+            </then>
+        </if>
+        <if line="96">
+            <binaryOperator type="comparison" operator="&lt;">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <return line="96">
+                        <signOperator type="-">
+                            <const value="2"/>
+                        </signOperator>
+                    </return>
+                </body>
+            </then>
+        </if>
+    </body>
+</function>
+
+<function name="pruebaIf02" type="int" line="99">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <if line="100">
+            <binaryOperator type="comparison" operator="&gt;=">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <return line="101">
+                        <const value="2"/>
+                    </return>
+                </body>
+            </then>
+            <else>
+                <body>
+                    <return line="103">
+                        <signOperator type="-">
+                            <const value="2"/>
+                        </signOperator>
+                    </return>
+                </body>
+            </else>
+        </if>
+    </body>
+</function>
+
+<function name="pruebaIf03" type="int" line="107">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <if line="108">
+            <binaryOperator type="comparison" operator="&gt;=">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <return line="109">
+                        <const value="2"/>
+                    </return>
+                </body>
+            </then>
+        </if>
+        <return line="111">
+            <const value="3"/>
+        </return>
+    </body>
+</function>
+
+<function name="pruebaIf04" type="int" line="114">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <if line="115">
+            <binaryOperator type="comparison" operator="==">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <return line="115">
+                        <const value="1"/>
+                    </return>
+                </body>
+            </then>
+            <else>
+                <body>
+                    <return line="116">
+                        <signOperator type="-">
+                            <const value="1"/>
+                        </signOperator>
+                    </return>
+                </body>
+            </else>
+        </if>
+    </body>
+</function>
+
+<function name="pruebaIf05" type="int" line="119">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <if line="120">
+            <binaryOperator type="comparison" operator="==">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <return line="120">
+                        <const value="1"/>
+                    </return>
+                </body>
+            </then>
+            <else>
+                <body>
+                    <return line="121">
+                        <signOperator type="-">
+                            <const value="1"/>
+                        </signOperator>
+                    </return>
+                </body>
+            </else>
+        </if>
+    </body>
+</function>
+
+<function name="pruebaFor01" type="int" line="124">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <if line="125">
+            <binaryOperator type="comparison" operator="&gt;">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <declarations>
+                        <declaration type="int" name="r" line="126">
+                            <const value="0"/>
+                        </declaration>
+                    </declarations>
+                    <for line="127">
+                        <declarations>
+                            <declaration type="int" name="i" line="127">
+                                <const value="0"/>
+                            </declaration>
+                        </declarations>
+                        <binaryOperator type="comparison" operator="&lt;">
+                            <variable name="i"/>
+                            <const value="10"/>
+                        </binaryOperator>
+                        <unaryOperator name="i" operator="+" line="127"/>
+                        <body>
+                            <assignmentOperator name="r" type="arithmetic" operator="+" line="128">
+                                <variable name="a"/>
+                            </assignmentOperator>
+                        </body>
+                    </for>
+                    <return line="130">
+                        <variable name="r"/>
+                    </return>
+                </body>
+            </then>
+            <else>
+                <body>
+                    <return line="132">
+                        <signOperator type="-">
+                            <const value="1"/>
+                        </signOperator>
+                    </return>
+                </body>
+            </else>
+        </if>
+    </body>
+</function>
+
+<function name="pruebaWhile01" type="int" line="136">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <declarations>
+            <declaration type="int" name="r" line="137">
+                <variable name="a"/>
+            </declaration>
+        </declarations>
+        <while line="138">
+            <binaryOperator type="comparison" operator="&gt;">
+                <variable name="r"/>
+                <const value="0"/>
+            </binaryOperator>
+            <body>
+                <consoleOut line="139">
+                    <variable name="r"/>
+                </consoleOut>
+                <unaryOperator name="r" operator="-" line="140"/>
+            </body>
+        </while>
+        <return line="142">
+            <const value="0"/>
+        </return>
+    </body>
+</function>

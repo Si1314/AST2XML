@@ -1,0 +1,79 @@
+<function name="masIgual" type="int" line="3">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <declarations>
+            <declaration type="int" name="c" line="4">
+                <variable name="a"/>
+            </declaration>
+        </declarations>
+        <assignmentOperator name="c" type="arithmetic" operator="+" line="5">
+            <variable name="b"/>
+        </assignmentOperator>
+        <return line="6">
+            <variable name="c"/>
+        </return>
+    </body>
+</function>
+
+<function name="menosIgual" type="int" line="9">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <declarations>
+            <declaration type="int" name="c" line="10">
+                <variable name="a"/>
+            </declaration>
+        </declarations>
+        <assignmentOperator name="c" type="arithmetic" operator="-" line="11">
+            <variable name="b"/>
+        </assignmentOperator>
+        <return line="12">
+            <variable name="c"/>
+        </return>
+    </body>
+</function>
+
+<function name="porIgual" type="int" line="15">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <declarations>
+            <declaration type="int" name="c" line="16">
+                <variable name="a"/>
+            </declaration>
+        </declarations>
+        <assignmentOperator name="c" type="arithmetic" operator="*" line="17">
+            <variable name="b"/>
+        </assignmentOperator>
+        <return line="18">
+            <variable name="c"/>
+        </return>
+    </body>
+</function>
+
+<function name="entreIgual" type="int" line="21">
+    <params>
+        <param type="int" name="a"/>
+        <param type="int" name="b"/>
+    </params>
+    <body>
+        <declarations>
+            <declaration type="int" name="c" line="22">
+                <variable name="a"/>
+            </declaration>
+        </declarations>
+        <assignmentOperator name="c" type="arithmetic" operator="/" line="23">
+            <variable name="b"/>
+        </assignmentOperator>
+        <return line="24">
+            <variable name="c"/>
+        </return>
+    </body>
+</function>
