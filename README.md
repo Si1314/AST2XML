@@ -42,3 +42,4 @@ There shall be the tool. As well as the other tools provided in the clang packag
 ## The guts
 
 Clang's AST structure	|	XML style format
+ --- | --- 
