@@ -1,10 +1,9 @@
 # __AST2XML__
-## A Clang tool
-=============
+##### A Clang tool
 
-Clang-TinyXML based AST parsing tool
+A simple C++ parser that returns a simplified version of Clang's AST in XML format.
 
-How to install
+## How to install
 =============
 
 LINUX
