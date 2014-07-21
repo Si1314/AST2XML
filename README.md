@@ -1,18 +1,21 @@
 # __AST2XML__
 
 A simple C++ parser that returns a simplified version of Clang's AST in XML format.
-=============
 
-## How to install
+## Installation
 
-### LINUX
+Ideally AST2XML would work on any system. But we are still working on it.
+
+### Linux
+
+This has been tested only on Ubuntu 13.
 
 1. Proceed with Clang's build install as stated here:
-	(http://clang.llvm.org/get_started.html)
+	http://clang.llvm.org/get_started.html
 
 2. Go to your llvm directory **cd (your llvm directory)/tools/clang/tools**
 
-3. Clone the repository at a custom folder **git clone https://github.com/Si1314/xml-tree-tool.git astXMLtool**
+3. Clone the repository at a custom folder **git clone https://github.com/Si1314/AST2XML.git ast2XMLtool**
 
 4. Copy the Makefile
 
@@ -31,3 +34,9 @@ The tool will be compiled and linked as long as there are no issues
 9. Go back to your build directory **cd (your build directory)/Debug + Asserts/build**
 
 There shall be the tool. As well as the other tools provided in the clang package.
+
+### Windows
+
+### Mac OS
+
+## The guts
