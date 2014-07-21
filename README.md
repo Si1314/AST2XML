@@ -1,4 +1,5 @@
-xml-tree-tool
+# __AST2XML__
+## A Clang tool
 =============
 
 Clang-TinyXML based AST parsing tool
