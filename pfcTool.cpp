@@ -311,9 +311,17 @@ public:
     }
 
     virtual bool TraverseImplicitCastExpr(ImplicitCastExpr *iCast) {
-        helpElement =  doc->NewElement ( "variable" );
-        helpElement->SetAttribute( "name" , cast<DeclRefExpr>(iCast->getSubExpr())->getDecl()->getDeclName().getAsString().c_str());
-        return true;
+        switch (iCast->getSubExpr()->getStmtClass()) {
+        case Stmt::DeclRefExprClass:{
+            helpElement =  doc->NewElement ( "variable" );
+            helpElement->SetAttribute( "name" , cast<DeclRefExpr>(iCast->getSubExpr())->getDecl()->getDeclName().getAsString().c_str());
+            return true;
+        }
+        default :{
+                TraverseStmt(iCast->getSubExprAsWritten());
+                return true;
+            }
+        }
     }
 
     virtual bool TraverseIntegerLiteral(IntegerLiteral *iLit) {
@@ -321,6 +329,13 @@ public:
         SmallString<8> aux;
         iLit->getValue().toStringSigned(aux);
         helpElement->SetAttribute( "value" , aux.c_str());
+        return true;
+    }
+
+    virtual bool TraverseStringLiteral(StringLiteral *sLit) {
+        helpElement =  doc->NewElement ( "string" );
+        sLit->getString();
+        helpElement->SetAttribute( "value" , sLit->getString().str().c_str());
         return true;
     }
 
@@ -354,6 +369,14 @@ public:
         return true;
     }
 
+    bool consoleCall(CallExpr *callE){
+        FunctionDecl* fun = callE->getDirectCallee();
+        string name (fun->getNameInfo().getName().getAsString());
+        if(string::npos!=name.find("In_")) return cInCall(callE);
+        if(string::npos!=name.find("Out_")) return cOutCall(callE);
+        return true;
+    }
+
     bool cInCall(CallExpr *callE){
         FunctionDecl* fun = callE->getDirectCallee();
         string name (fun->getNameInfo().getName().getAsString());
@@ -371,7 +394,7 @@ public:
         SourceManager& SM = astContext->getSourceManager();
         PresumedLoc PLoc = SM.getPresumedLoc(callE->getLocStart());
         helpElement->SetAttribute( "line" , PLoc.getLine());
-        
+
         XMLElement* auxElement = helpElement;
         TraverseStmt(callE->getArg(0));
         auxElement->InsertEndChild(helpElement);
@@ -379,15 +402,7 @@ public:
         return true;
     }
 
-    bool consoleCall(CallExpr *callE){
-        FunctionDecl* fun = callE->getDirectCallee();
-        string name (fun->getNameInfo().getName().getAsString());
-        if(string::npos!=name.find("In_")) return cInCall(callE);
-        if(string::npos!=name.find("Out_")) return cOutCall(callE);
-        return true;
-    }
-
-    virtual bool TraverseStmt(Stmt *S) {
+/*    virtual bool TraverseStmt(Stmt *S) {
         switch (S->getStmtClass()) {
         case Stmt::DeclStmtClass:
             return TraverseDeclStmt(cast<DeclStmt>(S));
@@ -419,7 +434,7 @@ public:
             return true;
         }
     }
-
+*/
     virtual bool TraverseTranslationUnitDecl(TranslationUnitDecl *tuD){
         DeclContext::decl_iterator init,end;
         init = cast<DeclContext>(tuD)->decls_begin();

@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 int ConsoleIn_Int(){
 	int i;
 	scanf ("%d",&i);
@@ -9,4 +8,8 @@ int ConsoleIn_Int(){
 
 void ConsoleOut_Int(int i){
 	printf ("%d\n",i);
+}
+
+void ConsoleOut_String(char *string){
+	printf ("%s\n", string);
 }

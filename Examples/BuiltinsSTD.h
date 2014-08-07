@@ -10,3 +10,7 @@ int ConsoleIn_Int(){
 void ConsoleOut_Int(int i){
 	cout << i << endl;
 }
+
+void ConsoleOut_String(char *s){
+	cout << s << endl;
+}

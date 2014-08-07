@@ -63,3 +63,23 @@ int hazWhile(int a){
 	}
 	return b;
 }
+
+int hazWhile2(int a){
+	int b = 0;
+	while(b<5){
+		ConsoleOut_Int(a+b);
+		b++;
+	}
+	return b;
+}
+
+int forSimple(int a){
+	if(a>0){
+		for(int i=0;i<a;i++){
+			ConsoleOut_Int(i);
+		}
+		return 0;
+	}else{
+		return -1;
+	}
+}

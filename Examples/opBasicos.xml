@@ -227,3 +227,82 @@
         </return>
     </body>
 </function>
+
+<function name="hazWhile2" type="int" line="67">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <declarations>
+            <declaration type="int" name="b" line="68">
+                <const value="0"/>
+            </declaration>
+        </declarations>
+        <while line="69">
+            <binaryOperator type="comparison" operator="&lt;">
+                <variable name="b"/>
+                <const value="5"/>
+            </binaryOperator>
+            <body>
+                <consoleOut line="70">
+                    <binaryOperator type="arithmetic" operator="+">
+                        <variable name="a"/>
+                        <variable name="b"/>
+                    </binaryOperator>
+                </consoleOut>
+                <unaryOperator name="b" operator="+" line="71"/>
+            </body>
+        </while>
+        <return line="73">
+            <variable name="b"/>
+        </return>
+    </body>
+</function>
+
+
+<function name="forSimple" type="int" line="76">
+    <params>
+        <param type="int" name="a"/>
+    </params>
+    <body>
+        <if line="77">
+            <binaryOperator type="comparison" operator="&gt;">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                    <for line="78">
+                        <declarations>
+                            <declaration type="int" name="i" line="78">
+                                <const value="0"/>
+                            </declaration>
+                        </declarations>
+                        <binaryOperator type="comparison" operator="&lt;">
+                            <variable name="i"/>
+                            <variable name="a"/>
+                        </binaryOperator>
+                        <unaryOperator name="i" operator="+" line="78"/>
+                        <body>
+                            <consoleOut line="79">
+                                <variable name="i"/>
+                            </consoleOut>
+                        </body>
+                    </for>
+                    <return line="81">
+                        <const value="0"/>
+                    </return>
+                </body>
+            </then>
+            <else>
+                <body>
+                    <return line="83">
+                        <signOperator type="-">
+                            <const value="1"/>
+                        </signOperator>
+                    </return>
+                </body>
+            </else>
+        </if>
+    </body>
+</function>
