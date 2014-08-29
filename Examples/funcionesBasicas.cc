@@ -1,5 +1,13 @@
 #include "BuiltinsIO.h"
 
+int dameMayor(int a, int b){
+	if(a > b){
+		return a;
+	}else{
+		return b;
+	}
+}
+
 int potencia(int a, int b){
 	if(b>=0){
 		int c = b;

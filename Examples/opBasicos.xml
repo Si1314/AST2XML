@@ -259,7 +259,6 @@
     </body>
 </function>
 
-
 <function name="forSimple" type="int" line="76">
     <params>
         <param type="int" name="a"/>

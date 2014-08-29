@@ -224,6 +224,7 @@ public:
 
     virtual bool TraverseBinaryOperator(BinaryOperator* bOp){
         XMLElement* auxElement;
+        cout << "hola" << endl;
         if(bOp->isAssignmentOp()){
             auxElement =  doc->NewElement( "assignment" );
             auxElement->SetAttribute( "name", cast<DeclRefExpr>(bOp->getLHS())->getDecl()->getDeclName().getAsString().c_str());
@@ -311,6 +312,8 @@ public:
     }
 
     virtual bool TraverseImplicitCastExpr(ImplicitCastExpr *iCast) {
+        cout << "caast" << endl;
+
         switch (iCast->getSubExpr()->getStmtClass()) {
         case Stmt::DeclRefExprClass:{
             helpElement =  doc->NewElement ( "variable" );
@@ -333,6 +336,7 @@ public:
     }
 
     virtual bool TraverseStringLiteral(StringLiteral *sLit) {
+        cout << "striiiing" << endl;
         helpElement =  doc->NewElement ( "string" );
         sLit->getString();
         helpElement->SetAttribute( "value" , sLit->getString().str().c_str());
@@ -396,13 +400,14 @@ public:
         helpElement->SetAttribute( "line" , PLoc.getLine());
 
         XMLElement* auxElement = helpElement;
+        cout << callE->getArg(0)->getStmtClassName() << endl;
         TraverseStmt(callE->getArg(0));
         auxElement->InsertEndChild(helpElement);
         helpElement = auxElement;
         return true;
     }
 
-/*    virtual bool TraverseStmt(Stmt *S) {
+    virtual bool TraverseStmt(Stmt *S) {
         switch (S->getStmtClass()) {
         case Stmt::DeclStmtClass:
             return TraverseDeclStmt(cast<DeclStmt>(S));
@@ -425,7 +430,9 @@ public:
         case Stmt::ImplicitCastExprClass:
             return TraverseImplicitCastExpr(cast<ImplicitCastExpr>(S));  
         case Stmt::IntegerLiteralClass:
-            return TraverseIntegerLiteral(cast<IntegerLiteral>(S));    
+            return TraverseIntegerLiteral(cast<IntegerLiteral>(S));  
+        case Stmt::StringLiteralClass:
+            return TraverseStringLiteral(cast<StringLiteral>(S));
         case Stmt::ParenExprClass:
             return TraverseParenExpr(cast<ParenExpr>(S)); 
         case Stmt::CallExprClass:
@@ -434,7 +441,7 @@ public:
             return true;
         }
     }
-*/
+
     virtual bool TraverseTranslationUnitDecl(TranslationUnitDecl *tuD){
         DeclContext::decl_iterator init,end;
         init = cast<DeclContext>(tuD)->decls_begin();
