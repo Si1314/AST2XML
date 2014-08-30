@@ -102,7 +102,7 @@ Takes in consideration name of the recipient, expresion to be assigned and code 
             <variable name="d"/>
         </assignmentOperator>
 
-###If structure
+###If instruction
 
 Takes in consideration the condition expresion, **then** and/or **else** structure and code position.
 
@@ -128,3 +128,21 @@ Takes in consideration the condition expresion, **then** and/or **else** structu
                 </body>
             </else>
         </if>
+
+###While instruction
+
+Takes in consideration the condition expresion, the body of the loop and code position.
+
+        while(a>0){
+            ...
+        }
+---
+        <while line="15">
+            <binaryOperator type="comparison" operator="&gt;">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <body>
+                ...
+            </body>
+        </while>
