@@ -11,7 +11,8 @@ Ideally AST2XML would work on any system. But we are still working on it.
 This has been tested only on Ubuntu 13.
 
 1. Proceed with Clang's build install as stated here:
-	http://clang.llvm.org/get_started.html
+
+		http://clang.llvm.org/get_started.html
 
 2. Go to your llvm directory **cd (your llvm directory)/tools/clang/tools**
 
