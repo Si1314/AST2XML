@@ -54,7 +54,7 @@ There should be the tool. As well as the other tools provided in the clang packa
 
 ###Function declaration
 
-Takes in consideration the return type, line, parameters and the body of the function declaration. 
+Takes into account the return type, line, parameters and the body of the function declaration. 
 
         int foo(int a,int b, ... ){
             ...
@@ -73,7 +73,7 @@ Takes in consideration the return type, line, parameters and the body of the fun
 
 ###Variable declaration
 
-Takes in consideration the variable type, line and initialization expresion.
+Takes into account the variable type, line and the initialization expresion.
 
         int a,b;
         int c = 1;
@@ -88,23 +88,33 @@ Takes in consideration the variable type, line and initialization expresion.
             </declaration>
         </declarations>
 
-###Assignments
+###Assignments & Operators
 
-Takes in consideration name of the recipient, expresion to be assigned and code position. Also the type of the operation and the operator type if needed.
+Assignments take into account the name of the recipient, the expresion to be assigned and the code position. Also the type of the operation and the operator type if needed.
 
         a = 1;
-        c += d;
+        b += a;
+        c++;
+        d = -c;
 ---
         <assignment name="a" line="72">
             <const value="1"/>
         </assignment>
-        <assignmentOperator name="c" type="arithmetic" operator="+" line="73">
-            <variable name="d"/>
+        <assignmentOperator name="b" type="arithmetic" operator="+" line="73">
+            <variable name="a"/>
         </assignmentOperator>
+        <unaryOperator name="c" operator="+" line="74"/>
+        <assignment name="d" line="75">
+            <signOperator type="-">
+                <variable name="c"/>
+            </signOperator>
+        </assignment>
+Operators supported are: 
+        + , - , / , * , ++ , -- , += , -= , /= , *= , && , || , ! , +(sign) , -(sign)
 
-###If instruction
+###If 
 
-Takes in consideration the condition expresion, **then** and/or **else** structure and code position.
+Takes into account the condition expresion, the **then** and/or **else** structure and the code position.
 
         if(a==0){
             ...
@@ -119,19 +129,19 @@ Takes in consideration the condition expresion, **then** and/or **else** structu
             </binaryOperator>
             <then>
                 <body>
-                ...
+                    ...
                 </body>
             </then>
             <else>
                 <body>
-                ...
+                    ...
                 </body>
             </else>
         </if>
 
-###While instruction
+###While loop
 
-Takes in consideration the condition expresion, the body of the loop and code position.
+Takes into account the condition expresion, the body of the loop and the code position.
 
         while(a>0){
             ...
@@ -146,3 +156,27 @@ Takes in consideration the condition expresion, the body of the loop and code po
                 ...
             </body>
         </while>
+
+###For loop
+
+Takes into account code position, the initialization of the control variable, the control variable's condition and step and the loop's body. 
+
+        for(int i=0;i<10;i++){
+            ...
+        }
+---
+        <for line="135">
+            <declarations>
+                <declaration type="int" name="i" line="135">
+                    <const value="0"/>
+                </declaration>
+            </declarations>
+            <binaryOperator type="comparison" operator="&lt;">
+                <variable name="i"/>
+                <const value="10"/>
+            </binaryOperator>
+            <unaryOperator name="i" operator="+" line="135"/>
+            <body>
+                ...
+            </body>
+        </for>
