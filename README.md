@@ -48,13 +48,26 @@ The tool will be compiled and linked as long as there are no issues
 
 		$cd (your build directory)/Debug + Asserts/build
 
-There shall be the tool. As well as the other tools provided in the clang package.
+There should be the tool. As well as the other tools provided in the clang package.
 
-### Windows
+## Contents
 
-### Mac OS
+###Functions
 
-## The guts
+Takes in consideration the return type, line, parameters and the body of the function declaration. 
 
-Clang's AST structure	|	XML style format
- --- | --- 
+		int foo(int a,int b, ... ){
+			...
+		}
+
+		<function name="dameMayor" type="int" line="3">
+    		<params>
+        		<param type="int" name="a"/>
+       			<param type="int" name="b"/>
+       			...
+    		</params>
+    		<body>
+    			...
+    		</body>
+    	</function>
+
