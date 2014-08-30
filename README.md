@@ -52,13 +52,14 @@ There should be the tool. As well as the other tools provided in the clang packa
 
 ## Contents
 
-###Functions
+###Function declaration
 
 Takes in consideration the return type, line, parameters and the body of the function declaration. 
 
 		int foo(int a,int b, ... ){
 			...
 		}
+
 
 		<function name="dameMayor" type="int" line="3">
     		<params>
@@ -71,3 +72,20 @@ Takes in consideration the return type, line, parameters and the body of the fun
     		</body>
     	</function>
 
+###Variable declaration
+
+Takes in consideration the variable type, line and initialization expresion.
+
+		int a,b;
+		int c = 1;
+
+
+		<declarations>
+            <declaration type="int" name="a" line="3"/>
+            <declaration type="int" name="b" line="3"/>
+        </declarations>
+        <declarations>
+            <declaration type="int" name="c" line="4">
+                <const value="1"/>
+            </declaration>
+        </declarations>
