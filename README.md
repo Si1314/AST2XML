@@ -92,12 +92,39 @@ Takes in consideration the variable type, line and initialization expresion.
 
 Takes in consideration name of the recipient, expresion to be assigned and code position. Also the type of the operation and the operator type if needed.
 
-        a = b;
+        a = 1;
         c += d;
 ---
         <assignment name="a" line="72">
-            <variable name="b"/>
+            <const value="1"/>
         </assignment>
         <assignmentOperator name="c" type="arithmetic" operator="+" line="73">
             <variable name="d"/>
         </assignmentOperator>
+
+###If structure
+
+Takes in consideration the condition expresion, **then** and/or **else** structure and code position.
+
+        if(a==0){
+            ...
+        }else{
+            ...
+        }
+---
+        <if line="6">
+            <binaryOperator type="comparison" operator="==">
+                <variable name="a"/>
+                <const value="0"/>
+            </binaryOperator>
+            <then>
+                <body>
+                ...
+                </body>
+            </then>
+            <else>
+                <body>
+                ...
+                </body>
+            </else>
+        </if>
