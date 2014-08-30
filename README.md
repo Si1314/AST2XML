@@ -96,6 +96,7 @@ Assignments take into account the name of the recipient, the expresion to be ass
         b += a;
         c++;
         d = -c;
+        e = !f;
 ---
         <assignment name="a" line="72">
             <const value="1"/>
@@ -109,7 +110,14 @@ Assignments take into account the name of the recipient, the expresion to be ass
                 <variable name="c"/>
             </signOperator>
         </assignment>
-Operators supported are: 
+        <assignment name="e" line="76">
+            <notOperator>
+                <variable name="f"/>
+            </notOperator>
+        </assignment>
+
+Operators supported are:
+
         + , - , / , * , ++ , -- , += , -= , /= , *= , && , || , ! , +(sign) , -(sign)
 
 ###If 
