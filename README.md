@@ -161,9 +161,17 @@ Functions behave like expresions. Takes into account the name of the function, t
 
 In order to work with the project 
         https://github.com/si1314/PFC 
-there are included some builtin functions to mask i/o behaviours. Those are the ones included in the files 
-        BuiltinsIO.h
-        BuiltinsSTD.h
+there are included some builtin functions to mask i/o behaviours. Those are the ones included in the files **BuiltinsIO.h** and **BuiltinsSTD.h**
+
+        ConsoleOut_Int(a);
+        return ConsoleIn_Int();
+---
+        <consoleOut line="83">
+            <variable name="a"/>
+        </consoleOut>
+        <return line="79">
+            <consoleIn type="int"/>
+        </return>
 
 ## Installation
 
