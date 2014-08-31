@@ -157,6 +157,14 @@ Functions behave like expresions. Takes into account the name of the function, t
             </callFunction>
         </assignment>
 
+###Builtins
+
+In order to work with the project 
+        https://github.com/si1314/PFC 
+there are included some builtin functions to mask i/o behaviours. Those are the ones included in the files 
+        BuiltinsIO.h
+        BuiltinsSTD.h
+
 ## Installation
 
 Ideally AST2XML would work on any system. But we are still working on it.
@@ -204,3 +212,9 @@ The tool will be compiled and linked as long as there are no issues
         $cd (your build directory)/Debug + Asserts/build
 
 There should be the tool. As well as the other tools provided in the clang package.
+
+##User manual
+
+In order to execute the tool use this command:
+
+        $./ast2xml <C++file> -- <XMLfile>
