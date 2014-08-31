@@ -2,56 +2,6 @@
 
 A simple C++ parser that returns a simplified version of Clang's AST in XML format.
 
-## Installation
-
-Ideally AST2XML would work on any system. But we are still working on it.
-
-### Linux
-
-This has been tested only on Ubuntu 13.
-
-1. Proceed with Clang's build install as stated here:
-
-        http://clang.llvm.org/get_started.html
-
-2. Go to your llvm directory 
-
-        $cd (your llvm directory)/tools/clang/tools
-
-3. Clone the repository at a custom folder 
-
-        $git clone https://github.com/Si1314/AST2XML.git ast2XMLtool
-
-4. Copy the Makefile
-
-5. Go to your build directory 
-        
-        cd (your build directory)/tools/clang/tools
-
-6. Make a specific directory for the tool (with the same name) 
-
-        $mkdir astXMLtool
-
-7. Paste in it the Makefile
-
-8. Go into the directory 
-
-        $cd astXMLtool
-
-8. Execute make command 
-
-        $make
-
-The tool will be compiled and linked as long as there are no issues
-
-9. Go back to your build directory 
-
-        $cd (your build directory)/Debug + Asserts/build
-
-There should be the tool. As well as the other tools provided in the clang package.
-
-## Contents
-
 ###Function declaration
 
 Takes into account the return type, line, parameters and the body of the function declaration. 
@@ -92,6 +42,10 @@ Takes into account the variable type, line and the initialization expresion.
 
 Assignments take into account the name of the recipient, the expresion to be assigned and the code position. Also the type of the operation and the operator type if needed.
 
+Operators supported are:
+
+        + , - , / , * , ++ , -- , += , -= , /= , *= , && , || , ! , +(sign) , -(sign)
+---
         a = 1;
         b += a;
         c++;
@@ -116,9 +70,6 @@ Assignments take into account the name of the recipient, the expresion to be ass
             </notOperator>
         </assignment>
 
-Operators supported are:
-
-        + , - , / , * , ++ , -- , += , -= , /= , *= , && , || , ! , +(sign) , -(sign)
 
 ###If 
 
@@ -188,3 +139,68 @@ Takes into account code position, the initialization of the control variable, th
                 ...
             </body>
         </for>
+
+###Calls
+
+Functions behave like expresions. Takes into account the name of the function, the type and the arguments required.
+
+        a = foo(b,c);
+---
+        <assignment name="a" line="94">
+            <callFunction name="foo" type="int">
+                <arg>
+                    <variable name="b"/>
+                </arg>
+                <arg>
+                    <variable name="c"/>
+                </arg>
+            </callFunction>
+        </assignment>
+
+## Installation
+
+Ideally AST2XML would work on any system. But we are still working on it.
+
+### Linux
+
+This has been tested only on Ubuntu 13.
+
+1. Proceed with Clang's build install as stated here:
+
+        http://clang.llvm.org/get_started.html
+
+2. Go to your llvm directory 
+
+        $cd (your llvm directory)/tools/clang/tools
+
+3. Clone the repository at a custom folder 
+
+        $git clone https://github.com/Si1314/AST2XML.git ast2XMLtool
+
+4. Copy the Makefile
+
+5. Go to your build directory 
+        
+        cd (your build directory)/tools/clang/tools
+
+6. Make a specific directory for the tool (with the same name) 
+
+        $mkdir astXMLtool
+
+7. Paste in it the Makefile
+
+8. Go into the directory 
+
+        $cd astXMLtool
+
+8. Execute make command 
+
+        $make
+
+The tool will be compiled and linked as long as there are no issues
+
+9. Go back to your build directory 
+
+        $cd (your build directory)/Debug + Asserts/build
+
+There should be the tool. As well as the other tools provided in the clang package.
