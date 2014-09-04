@@ -4,7 +4,7 @@ A simple C++ parser that returns a simplified version of Clang's AST in XML form
 
 ###Function declaration
 
-Takes into account the return type, line, parameters and the body of the function declaration. 
+Contains: the name of the function, the return type, the line, a list of parameters required and the body of the function.
 
         int foo(int a,int b, ... ){
             ...
@@ -23,7 +23,7 @@ Takes into account the return type, line, parameters and the body of the functio
 
 ###Variable declaration
 
-Takes into account the variable type, line and the initialization expresion.
+Contains: the variable type, line and the initialization expresion.
 
         int a,b;
         int c = 1;
@@ -40,7 +40,7 @@ Takes into account the variable type, line and the initialization expresion.
 
 ###Assignments & Operators
 
-Assignments take into account the name of the recipient, the expresion to be assigned and the code position. Also the type of the operation and the operator type if needed.
+Contains: the name of the recipient, the expresion to be assigned and the code position. Also the type of the operation and the operator type if needed.
 
 Operators supported are:
 
@@ -73,7 +73,7 @@ Operators supported are:
 
 ###If 
 
-Takes into account the condition expresion, the **then** and/or **else** structure and the code position.
+Contains: the condition expresion, the **then** and/or **else** structure and the code position.
 
         if(a==0){
             ...
@@ -100,7 +100,7 @@ Takes into account the condition expresion, the **then** and/or **else** structu
 
 ###While loop
 
-Takes into account the condition expresion, the body of the loop and the code position.
+Contains: the condition expresion, the body of the loop and the code position.
 
         while(a>0){
             ...
@@ -118,7 +118,7 @@ Takes into account the condition expresion, the body of the loop and the code po
 
 ###For loop
 
-Takes into account code position, the initialization of the control variable, the control variable's condition and step and the loop's body. 
+Contains: the code position, the initialization of the control variable, the control variable's condition and step and the loop's body. 
 
         for(int i=0;i<10;i++){
             ...
@@ -142,7 +142,8 @@ Takes into account code position, the initialization of the control variable, th
 
 ###Calls
 
-Functions behave like expresions. Takes into account the name of the function, the type and the arguments required.
+Functions behave like expresions. 
+Contains: the name of the function, the type and the arguments required.
 
         a = foo(b,c);
 ---
