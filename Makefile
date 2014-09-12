@@ -1,8 +1,8 @@
 CLANG_LEVEL := ../..
 
-TOOLNAME = pfcTool  #the name of your tool's executable
+TOOLNAME = ast2xml  #the name of your tool's executable
 
-SOURCES := tinyxml2.h tinyxml2.cpp pfcTool.cpp#the Clang source files you want to compile
+SOURCES := tinyxml2.h tinyxml2.cpp ast2xml.cpp#the Clang source files you want to compile
 
 include $(CLANG_LEVEL)/../../Makefile.config
 

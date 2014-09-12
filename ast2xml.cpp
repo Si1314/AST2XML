@@ -465,12 +465,12 @@ public:
 
 
 
-class ExampleASTConsumer : public ASTConsumer {
+class ToXMLASTConsumer : public ASTConsumer {
 private:
     ToXMLVisitor *visitor; 
 
 public:
-    explicit ExampleASTConsumer(CompilerInstance *CI) : visitor(new ToXMLVisitor(CI)) { }
+    explicit ToXMLASTConsumer(CompilerInstance *CI) : visitor(new ToXMLVisitor(CI)) { }
 
     virtual void HandleTranslationUnit(ASTContext &Context) {
         visitor->TraverseDecl(Context.getTranslationUnitDecl());
@@ -479,10 +479,10 @@ public:
 
 
 
-class ExampleFrontendAction : public ASTFrontendAction {
+class ToXMLFrontendAction : public ASTFrontendAction {
 public:
     virtual ASTConsumer *CreateASTConsumer(CompilerInstance &CI, StringRef file) {
-        return new ExampleASTConsumer(&CI); // pass CI pointer to ASTConsumer
+        return new ToXMLASTConsumer(&CI); // pass CI pointer to ASTConsumer
     }
 };
 
@@ -494,7 +494,7 @@ int main(int argc, const char **argv) {
     CommonOptionsParser op(argc, argv,ClangExCategory);    
     ClangTool Tool(op.getCompilations(), op.getSourcePathList());    
 
-    Tool.run(newFrontendActionFactory<ExampleFrontendAction>());      
+    Tool.run(newFrontendActionFactory<ToXMLFrontendAction>());      
 
     //XMLElement* auxElement;
     //auxElement = doc->NewElement( "functions" );
