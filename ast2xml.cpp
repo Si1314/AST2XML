@@ -224,7 +224,7 @@ public:
 
     virtual bool TraverseBinaryOperator(BinaryOperator* bOp){
         XMLElement* auxElement;
-        cout << "hola" << endl;
+        //cout << "hola" << endl;
         if(bOp->isAssignmentOp()){
             auxElement =  doc->NewElement( "assignment" );
             auxElement->SetAttribute( "name", cast<DeclRefExpr>(bOp->getLHS())->getDecl()->getDeclName().getAsString().c_str());
@@ -312,7 +312,7 @@ public:
     }
 
     virtual bool TraverseImplicitCastExpr(ImplicitCastExpr *iCast) {
-        cout << "caast" << endl;
+        //cout << "caast" << endl;
 
         switch (iCast->getSubExpr()->getStmtClass()) {
         case Stmt::DeclRefExprClass:{
@@ -336,10 +336,17 @@ public:
     }
 
     virtual bool TraverseStringLiteral(StringLiteral *sLit) {
-        cout << "striiiing" << endl;
+        //cout << "striiiing" << endl;
         helpElement =  doc->NewElement ( "string" );
         sLit->getString();
         helpElement->SetAttribute( "value" , sLit->getString().str().c_str());
+        return true;
+    }
+
+    virtual bool TraverseCXXBoolLiteralExpr(CXXBoolLiteralExpr *bLit){
+        helpElement =  doc->NewElement ( "const" );
+        if(bLit->getValue()) helpElement->SetAttribute( "value" , "1");
+        else helpElement->SetAttribute( "value" , "0");
         return true;
     }
 
@@ -400,7 +407,7 @@ public:
         helpElement->SetAttribute( "line" , PLoc.getLine());
 
         XMLElement* auxElement = helpElement;
-        cout << callE->getArg(0)->getStmtClassName() << endl;
+        //cout << callE->getArg(0)->getStmtClassName() << endl;
         TraverseStmt(callE->getArg(0));
         auxElement->InsertEndChild(helpElement);
         helpElement = auxElement;
@@ -408,6 +415,7 @@ public:
     }
 
     virtual bool TraverseStmt(Stmt *S) {
+        //cout << S->getStmtClassName() << endl;
         switch (S->getStmtClass()) {
         case Stmt::DeclStmtClass:
             return TraverseDeclStmt(cast<DeclStmt>(S));
@@ -437,6 +445,8 @@ public:
             return TraverseParenExpr(cast<ParenExpr>(S)); 
         case Stmt::CallExprClass:
             return TraverseCallExpr(cast<CallExpr>(S)); 
+        case Stmt::CXXBoolLiteralExprClass:
+            return TraverseCXXBoolLiteralExpr(cast<CXXBoolLiteralExpr>(S));
         default:
             return true;
         }
